@@ -20,10 +20,8 @@ StackOverflowClone::Application.routes.draw do
 
   resources :votes, :only => [:create]
 
-  resources :sessions, :only => [:new, :create, :destroy]
+  resources :sessions, :only => :create
   match '/logout', :to => 'sessions#destroy'
-  match '/login', :to => 'sessions#create'
-
-
+  match '/login', :to => 'sessions#new'
 
 end

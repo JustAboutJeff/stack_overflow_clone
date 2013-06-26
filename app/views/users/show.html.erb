@@ -1,0 +1,11 @@
+<div class="container">
+
+  <%= @user.user_name %>
+  <%= @user.real_name %>
+
+  <%= @user.questions.count %>
+
+  <%= link_to "Delete", user_path(@user), html_options = {method: :delete, confirm: "Are you sure you want to delete #{@user.user_name}?"} %>
+
+</div>
+
