@@ -10,8 +10,6 @@ class QuestionsController < ApplicationController
 
 	def create
 		question = Question.new(params[:question])
-		# current_user.questions << question
-		current_user = User.find(1)
 		current_user.questions << question
 		if question.save
 			redirect_to questions_path
@@ -27,8 +25,6 @@ class QuestionsController < ApplicationController
 
 	def update
 		question = Question.find(params[:id])
-		# current_user.questions << question
-		current_user = User.find(1)
 		question.update_attributes(params[:question])
 		if question.save
 			redirect_to questions_path
