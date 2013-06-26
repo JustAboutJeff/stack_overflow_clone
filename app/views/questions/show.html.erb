@@ -7,7 +7,6 @@
   <h3>Add an answer:</h3>
   <%= render partial: "answers/new", locals: {answer: @answer, question: @question} %>
 
-
   <h3>Current answers: </h3>
     <% @question.answers.each do |answer| %>
         <%= render partial: "answers/show_answer", locals: {answer: answer} %>
