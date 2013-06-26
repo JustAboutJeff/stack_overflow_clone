@@ -1,0 +1,7 @@
+<h1>New Question</h1>
+
+<%= form_for @question do |q| %>
+	<%= q.text_field :title, :placeholder => "Title" %>
+	<%= q.text_area :content, :placeholder => "Question" %>
+	<%= q.submit %>
+<% end %>
