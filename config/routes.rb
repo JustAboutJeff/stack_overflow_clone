@@ -12,7 +12,7 @@ StackOverflowClone::Application.routes.draw do
     resources :answers
   end
 
-  resources :answers, :only => [:index, :show]
+  resources :answers
 
 
   resources :tags do 
