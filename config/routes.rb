@@ -8,7 +8,9 @@ StackOverflowClone::Application.routes.draw do
     resources :comments, :only => [:index]
   end
 
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
 
   resources :answers
 
