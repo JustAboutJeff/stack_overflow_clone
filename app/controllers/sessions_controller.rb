@@ -1,14 +1,13 @@
 class SessionsController < ApplicationController
 
   def new
-    # Renders form to allow user login
   end
 
   def create
     if @user = User.authenticate(params[:user][:user_name], params[:user][:password])
       session[:user_id] = @user.id
       redirect_to root_path
-    else 
+    else
       @errors = @user.errors
       redirect_to login_path
     end
@@ -18,5 +17,4 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
-
 end
