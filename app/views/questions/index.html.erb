@@ -1,0 +1,9 @@
+<h1>All Questions</h1>
+<%= link_to "Add New Question", new_question_path %>
+
+<% @questions.each do |q| %>
+	<h4><%= q.title %></h4>
+	<p><%= q.content %></p>
+	<%= link_to "Edit this post", edit_question_path(q) %>
+	<%= link_to "delete this post", question_path(q), :method => "DELETE" %>
+<% end %>
