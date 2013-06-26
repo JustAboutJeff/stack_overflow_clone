@@ -1,0 +1,7 @@
+<div class="container">
+  <ul>
+    <% @answers.each do |answer| %>
+        <%= render partial: "show_answer", locals: {answer: answer} %>
+    <% end %>
+  </ul>
+</div>

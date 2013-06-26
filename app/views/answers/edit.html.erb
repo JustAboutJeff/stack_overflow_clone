@@ -1,0 +1,6 @@
+<h1>edit</h1>
+
+<%= form_for @answer do |a| %>
+  <%= a.text_field :content, :placeholder => "content" %>
+  <%= a.submit "Save" %>
+<% end %>

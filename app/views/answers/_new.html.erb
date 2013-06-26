@@ -1,0 +1,8 @@
+<div class="container">
+
+  <%= form_for answer, url: question_answers_path(question) do |f| %>
+    <%= f.text_field :content   %>  
+    <%= f.submit "Submit Answer"  %>
+  <% end %>
+
+</div>
