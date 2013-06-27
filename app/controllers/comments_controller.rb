@@ -18,24 +18,24 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    session[:return_to] ||= request.referer
     @comment = Comment.find(params[:id])
   end
 
   def update
     comment = Comment.find(params[:id])
     comment.update_attributes(params[:comment])
-    if comment.save
-      redirect_to root_path
-    else
+    if !comment.save
       @errors = "Update did not save"
-      redirect_to root_path
     end
+    redirect_to session[:return_to]
   end
 
   def destroy
+    session[:return_to] ||= request.referer
     comment = Comment.find(params[:id])
     comment.destroy
-    redirect_to root_path
+    redirect_to session[:return_to]
   end
 
 end
