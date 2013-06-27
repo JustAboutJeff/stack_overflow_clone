@@ -27,6 +27,7 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to root_path
     else
+      @errors = "Update did not save"
       redirect_to root_path
     end
   end
