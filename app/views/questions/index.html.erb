@@ -8,7 +8,7 @@
   <%= link_to "Edit this post", edit_question_path(q) %>
 	<h5>Tags</h5>
 	<% q.tags.each do |tag| %>
-		<p><%= tag.tag_name %></p>
+    <p><%= link_to tag.tag_name, tag_path(tag) %></p>
 	<% end %>
 	<%= link_to "delete this post", question_path(q), :method => "DELETE" %>
 <% end %>
