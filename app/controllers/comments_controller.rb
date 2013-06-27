@@ -1,22 +1,6 @@
 class CommentsController < ApplicationController
   
-  def new
-    @comment = Comment.new
-  end
-
-
-  # def index
-  #   @comments = Comment.order("created_at DESC")
-  # end
-
-  # def show
-  #   @comment = Commment.find(params[:id])
-  # end
-
   def create
-    puts "*********TEST************"
-    puts params.inspect
-
     klass = params[:question_id] ? "Question" : "Answer"
 
     comment = Comment.new(params[:comment])
@@ -25,22 +9,17 @@ class CommentsController < ApplicationController
 
     commentable.comments << comment
 
-    # if comment.save
-    #   redirect_to answer_path(commentable) if klass == "Answer"
-    #   redirect_to question_path(commentable) if klass == "Question"
-    # else
-    #   # @errors = #.errors
-    #   redirect_to answer_path(commentable) if klass == "Answer"
-    #   redirect_to question_path(commentable) if klass == "Question"
-    # end
+    if !comment.save
+      @errors = "Comment did not save"
+    end
 
     redirect_to answer_path(commentable) if klass == "Answer"
     redirect_to question_path(commentable) if klass == "Question"
   end
 
-  # def edit
-  #   @comment = Comment.find(params[:id])
-  # end
+  def edit
+    @comment = Comment.find(params[:id])
+  end
 
   # def update
   #   comment = Comment.find(params[:id])
@@ -52,10 +31,10 @@ class CommentsController < ApplicationController
   #   end
   # end
 
-  # def destroy
-  #   comments = Answer.find(params[:id])
-  #   comment.destroy
-  #   redirect_to #
-  # end
+  def destroy
+    comments = Answer.find(params[:id])
+    comment.destroy
+    redirect_to root_path
+  end
 
 end
