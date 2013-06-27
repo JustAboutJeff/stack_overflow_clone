@@ -9,7 +9,7 @@
 
   <h3>Current answers: </h3>
     <% @question.answers.each do |answer| %>
-        <%= render partial: "answers/show_answer", locals: {answer: answer} %>
+        <%= render partial: "answers/show_answer", locals: {answer: answer, comment: @comment} %>
     <% end %>
 
 </div>
