@@ -12,7 +12,11 @@ StackOverflowClone::Application.routes.draw do
     resources :answers
   end
 
-  resources :answers
+  # resources :answers
+  match '/answers', :to => "answers#index"
+  match '/answers/new', :to => "answers#new"
+  match '/answers/:id/edit', :to => "answers#edit"
+  match '/answers/:id', :to => "answers#show"
 
   resources :tags do 
     resources :questions, :only => [:index]    
