@@ -2,7 +2,7 @@ class User < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string  :real_name
-      t.string  :gravatar_url
+      t.string  :gravatar_hash
       t.string  :email
       t.string  :user_name
       t.string  :password_digest

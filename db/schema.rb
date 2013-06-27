@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20130626234504) do
 
   create_table "users", :force => true do |t|
     t.string   "real_name"
-    t.string   "gravatar_url"
+    t.string   "gravatar_hash"
     t.string   "email"
     t.string   "user_name"
     t.string   "password_digest"
