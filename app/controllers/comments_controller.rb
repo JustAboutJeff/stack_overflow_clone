@@ -12,9 +12,7 @@ class CommentsController < ApplicationController
     if !comment.save
       @errors = "Comment did not save"
     end
-
-    redirect_to answer_path(commentable) if klass == "Answer"
-    redirect_to question_path(commentable) if klass == "Question"
+    redirect_to(:back)
   end
 
   def edit
