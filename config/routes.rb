@@ -14,8 +14,8 @@ StackOverflowClone::Application.routes.draw do
 
   resources :answers
 
-  resources :tags do 
-    resources :questions, :only => [:index]    
+  resources :tags do
+    resources :questions, :only => [:index]
   end
 
   resources :comments
