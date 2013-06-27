@@ -3,13 +3,20 @@
   <h1><%= @question.title %></h1>
   <p><%= @question.content %></p>
 
+  <h4>Question comments: </h4>
+  <% @question.comments.each do |comment| %>
+    <%= render partial: "comments/show_comment", locals: {comment: comment} %>
+  <% end %>
+
+  <h4>Add a comment to this question</h4>
+  <%= render partial: "comments/new_question_comment", locals: {commentable: @question } %>
 
   <h3>Add an answer:</h3>
   <%= render partial: "answers/new", locals: {answer: @answer, question: @question} %>
 
   <h3>Current answers: </h3>
     <% @question.answers.each do |answer| %>
-        <%= render partial: "answers/show_answer", locals: {answer: answer} %>
+        <%= render partial: "answers/show_answer", locals: {answer: answer, comment: @comment} %>
     <% end %>
 
 </div>

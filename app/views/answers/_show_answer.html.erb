@@ -3,4 +3,13 @@
   <li><%= link_to "Edit Answer", edit_answer_path(answer) %></li>
   <li><%= link_to "Delete Answer", answer_path(answer), :method => "DELETE" %></li>
   <br>
+
+  <h4>Comments on this answer: </h4>
+  <% answer.comments.each do |comment| %>
+    <%= render partial: "comments/show_comment", locals: {comment: comment} %>
+  <% end %>
+
+  <h4>Add a comment to this answer:</h4>
+  <%= render partial: "comments/new_answer_comment", locals: {commentable: answer } %>
+
 </div>

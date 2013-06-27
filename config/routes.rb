@@ -10,9 +10,12 @@ StackOverflowClone::Application.routes.draw do
 
   resources :questions do
     resources :answers
+    resources :comments, :only => [:create]
   end
 
-  resources :answers
+  resources :answers do
+    resources :comments, :only => [:create]
+  end
 
   resources :tags do
     resources :questions, :only => [:index]
