@@ -2,7 +2,5 @@
   <span class='user_photo'><img src="http://www.gravatar.com/avatar/<%= user.gravatar_hash %>?s=80&d=identicon" alt='Avatar'></span>
   <span class='user_name'>User name:<%= user.user_name %></span>
   <span class='user_view'><%= link_to 'View', user_path(user) %></span>
-  <% if current_user.id == user.id %>
-    <span class='user_edit'><%= link_to 'Edit', edit_user_path(user) %></span>
-  <% end %>
+  <span class='user_edit'><%= link_to 'Edit', edit_user_path(user) %></span>
 </div>
