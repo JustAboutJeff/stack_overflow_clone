@@ -1,11 +1,11 @@
 class QuestionsController < ApplicationController
-	
 	def index
 		@questions = Question.all
 	end
 
 	def new
 		@question = Question.new
+		@tag = Tag.new
 	end
 
 	def show
@@ -14,14 +14,16 @@ class QuestionsController < ApplicationController
 	end
 
 	def create
-		question = Question.new(params[:question])
-		current_user.questions << question
-		if question.save
-			redirect_to questions_path
-		else
-			@errors = "Could not create Question"
-			erb new
+		question = Question.create(params[:question])
+		all_tags = params[:tags].split(',')
+		all_tags.each do |tag|
+			question.tags << Tag.find_or_create_by_tag_name(
+																											:tag_name => tag.strip,
+																											:question_id => question.id	
+																											)
 		end
+		current_user.questions << question
+		redirect_to questions_path
 	end
 
 	def edit

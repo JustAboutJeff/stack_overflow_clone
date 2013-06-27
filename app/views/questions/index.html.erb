@@ -6,5 +6,9 @@
 	<p><%= q.content %></p>
 	<%= link_to "Read question", question_path(q) %>
   <%= link_to "Edit this post", edit_question_path(q) %>
+	<h5>Tags</h5>
+	<% q.tags.each do |tag| %>
+		<p><%= tag.tag_name %></p>
+	<% end %>
 	<%= link_to "delete this post", question_path(q), :method => "DELETE" %>
 <% end %>
