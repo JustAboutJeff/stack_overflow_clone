@@ -13,7 +13,9 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  private
+
   def create_gravatar_hash
-    self.gravatar_url = Digest::MD5.hexdigest( self.email.strip.downcase )
+    self.gravatar_hash = Digest::MD5.hexdigest( self.email.strip.downcase )
   end
 end
