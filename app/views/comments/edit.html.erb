@@ -1,0 +1,6 @@
+<h3>Edit comment</h3>
+
+<%= form_for @comment do |c| %>
+  <%= c.text_field :content %>
+  <%= c.submit "Save" %>
+<% end %>
