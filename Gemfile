@@ -29,4 +29,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'guard-rspec'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
