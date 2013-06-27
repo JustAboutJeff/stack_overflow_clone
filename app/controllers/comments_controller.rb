@@ -21,18 +21,18 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-  # def update
-  #   comment = Comment.find(params[:id])
-  #   comment.update_attributes(params[:comment])
-  #   if comment.save
-  #     redirect_to #
-  #   else
-  #     redirect_to #
-  #   end
-  # end
+  def update
+    comment = Comment.find(params[:id])
+    comment.update_attributes(params[:comment])
+    if comment.save
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
 
   def destroy
-    comments = Answer.find(params[:id])
+    comment = Comment.find(params[:id])
     comment.destroy
     redirect_to root_path
   end
