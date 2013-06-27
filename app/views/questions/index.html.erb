@@ -4,6 +4,10 @@
 <% @questions.each do |q| %>
 	<h4><%= q.title %></h4>
 	<p><%= q.content %></p>
+	<h5>Tags</h5>
+	<% q.tags.each do |tag| %>
+		<p><%= tag.tag_name %></p>
+	<% end %>
 	<%= link_to "Edit this post", edit_question_path(q) %>
 	<%= link_to "delete this post", question_path(q), :method => "DELETE" %>
 <% end %>

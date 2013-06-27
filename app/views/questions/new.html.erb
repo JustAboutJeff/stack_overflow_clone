@@ -3,5 +3,6 @@
 <%= form_for @question do |q| %>
 	<%= q.text_field :title, :placeholder => "Title" %>
 	<%= q.text_area :content, :placeholder => "Question" %>
+	<%= text_field_tag "tags", nil, :placeholder => "Tags, (separated by commas)" %>
 	<%= q.submit %>
 <% end %>
