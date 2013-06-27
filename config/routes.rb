@@ -13,10 +13,14 @@ StackOverflowClone::Application.routes.draw do
   end
 
   # resources :answers
-  match '/answers', :to => "answers#index"
-  match '/answers/new', :to => "answers#new"
-  match '/answers/:id/edit', :to => "answers#edit"
-  match '/answers/:id', :to => "answers#show"
+  get '/answers/:id/edit', :to => "answers#edit", as: :edit_answer
+  get '/answers/new', :to => "answers#new", as: :new_answer
+  get '/answers', :to => "answers#index", as: :answers
+  post '/answers', :to => "answers#create", as: :answers
+  get '/answers/:id', :to => "answers#show", as: :answer
+  delete '/answers/:id', :to => "answers#destroy", as: :answer
+  put '/answers/:id', :to => "answers#update", as: :answer
+
 
   resources :tags do 
     resources :questions, :only => [:index]    
