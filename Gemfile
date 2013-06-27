@@ -28,4 +28,5 @@ group :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'guard-rspec'
 end
