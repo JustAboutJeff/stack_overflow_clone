@@ -1,14 +1,16 @@
 class SessionsController < ApplicationController
 
   def new
+    @user = User.new
   end
 
   def create
-    if @user = User.authenticate(params[:user][:user_name], params[:user][:password])
+    if @user = User.validate(params[:user])
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      @errors = @user.errors
+      # TODO: error handling
+      # @errors = @user.errors
       redirect_to login_path
     end
   end

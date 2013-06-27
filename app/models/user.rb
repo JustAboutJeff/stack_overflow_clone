@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   require 'digest'
 
+  # TODO: error handling
+  # attr_reader :errors
+
   attr_accessible :real_name, :user_name, :email, :password, :about, :age,
                    :website, :location, :password_confirmation
 
@@ -9,9 +12,16 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :votes
 
+  validates :user_name, presence: true
+  validates :email, uniqueness: true, presence: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  has_secure_password
   before_save :create_gravatar_hash
 
-  has_secure_password
+  def self.validate(params={})
+    return nil unless @user = User.find_by_email(params[:email])
+    @user.authenticate(params[:password]) ? @user : nil
+  end
 
   private
 
