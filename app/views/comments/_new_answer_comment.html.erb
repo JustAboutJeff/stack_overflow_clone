@@ -1,0 +1,14 @@
+<div class="new-comment">
+
+  <%= form_for @comment, url: [commentable, :comments] do |f| %>
+    <%= f.text_field :content  %>
+    <%= f.submit "Submit Comment" %>
+  <% end %> 
+
+</div>
+
+
+<!-- [commentable, :comments] -->
+
+
+<!-- answer_comments -->

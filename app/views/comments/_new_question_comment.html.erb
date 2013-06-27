@@ -1,6 +1,6 @@
 <div class="new-comment">
 
-  <%= form_for Comment.new, url: answer_comments_path(commentable) do |f| %>
+  <%= form_for @comment, url: question_comments_path(commentable) do |f| %>
     <%= f.text_field :content  %>
     <%= f.submit "Submit Comment" %>
   <% end %> 
