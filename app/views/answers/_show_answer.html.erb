@@ -1,17 +1,22 @@
 <div class='answer'>
-  <li><%= answer.content %></li>
-  <%= render partial: 'voting/voting', locals: {:element => answer, :type => "answer"} %>
-  <% if current_user && current_user.id == answer.user.id %>
-    <li><%= link_to "Edit Answer", edit_answer_path(answer) %></li>
-    <li><%= link_to "Delete Answer", answer_path(answer), :method => "DELETE" %></li>
-  <% end %>
-  <br>
-    <h4>Comments on this answer: </h4>
-    <% answer.comments.each do |comment| %>
-      <%= render partial: "comments/show_comment", locals: {comment: comment} %>
-    <% end %>
-  <% if current_user %>
-    <h4>Add a comment to this answer:</h4>
-    <%= render partial: "comments/new_comment", locals: {commentable: answer } %>
-  <% end %>
+  <div class="row">
+    <div class="span8">
+      <li><%= answer.content %></li>
+      <%= render partial: 'voting/voting', locals: {:element => answer, :type => "answer"} %>
+      <% if current_user && current_user.id == answer.user.id %>
+        <li><%= link_to "Edit Answer", edit_answer_path(answer) %></li>
+        <li><%= link_to "Delete Answer", answer_path(answer), :method => "DELETE" %></li>
+      <% end %>
+      <% if current_user %>
+        <h6>Add a comment to this answer:</h6>
+        <%= render partial: "comments/new_comment", locals: {commentable: answer } %>
+      <% end %>
+    </div>
+    <div class="span4">
+      <h6>Comments on this answer: </h6>
+      <% answer.comments.each do |comment| %>
+        <%= render partial: "comments/show_comment", locals: {comment: comment} %>
+      <% end %>
+    </div>
+  </div>
 </div>
