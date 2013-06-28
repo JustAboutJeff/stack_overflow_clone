@@ -11,3 +11,40 @@
  *= require_self
  *= require_tree .
  */
+ /************ voting ****************/
+ .thumbs_up_img{
+ 	width: 51px;
+ 	height: 51px;
+ 	background-image: url('icon_SPRITE.png');
+ }
+ .thumbs_down_img{
+ 	width: 51px;
+ 	height: 51px;
+ 	background-image: url('icon_SPRITE.png');
+ 	background-position: 0px -51px;
+ }
+ .voting-shell{
+ 	width: 300px;
+ 	position: relative;
+ 	overflow: auto;
+ 	margin:15px 0;
+ }
+ .voting-buttons{
+ 	float: left;
+ 	opacity: 0.6;
+ }
+  .voting-buttons:hover{
+		opacity: 1;
+  }
+  .voting-shell .vote-score{
+  	font-size: 40px;
+  	font-weight: bold;
+  	float: left;
+  	padding: 0px;
+  	margin: 0px;
+  }
+  .num-votes{
+  	font-size: 14px;
+  	color: grey;
+  	clear: both;
+  }
