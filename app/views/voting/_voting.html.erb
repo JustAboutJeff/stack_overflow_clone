@@ -1,0 +1,2 @@
+<%= link_to "upvote!", votes_path(:votable_element => type, :value => 1, :element_id => element.id), :method => "POST"%><br>
+<%= link_to "downvote!", votes_path(:votable_element => type, :value => -1, :element_id => element.id), :method => "POST"%>
