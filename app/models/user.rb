@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
   validates :user_name, presence: true
   validates :email, uniqueness: true, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :password, presence: true, length: { minimum: 6 }, :if => :validate_password?
+  validates :password_confirmation, presence: true, :if => :validate_password?
 
   has_secure_password
   before_save :create_gravatar_hash
@@ -30,5 +30,9 @@ class User < ActiveRecord::Base
 
   def create_gravatar_hash
     self.gravatar_hash = Digest::MD5.hexdigest( self.email.strip.downcase )
+  end
+
+  def validate_password?
+    new_record? || password.present? || password_confirmation.present?
   end
 end
