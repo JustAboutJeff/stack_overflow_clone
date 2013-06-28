@@ -11,6 +11,4 @@
 	<% end %>
 	<%= link_to "delete this post", question_path(q), :method => "DELETE" %><br>
 	<%= render partial: 'voting/voting', locals: {:element => q, :type => "question"} %>
-	<p>number of votes: <%= q.votes.count %></p>
-	<p>vote score: <%= q.vote_score %></p>
 <% end %>

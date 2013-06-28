@@ -1,5 +1,6 @@
 <div class='answer'>
   <li><%= answer.content %></li>
+  <%= render partial: 'voting/voting', locals: {:element => answer, :type => "answer"} %>
   <li><%= link_to "Edit Answer", edit_answer_path(answer) %></li>
   <li><%= link_to "Delete Answer", answer_path(answer), :method => "DELETE" %></li>
   <br>

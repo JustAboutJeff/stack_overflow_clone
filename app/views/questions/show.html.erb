@@ -1,8 +1,7 @@
 <div class="container">
-
   <h1><%= @question.title %></h1>
   <p><%= @question.content %></p>
-
+  <%= render partial: 'voting/voting', locals: {:element => @question, :type => "question"} %>
   <h4>Question comments: </h4>
   <% @question.comments.each do |comment| %>
     <%= render partial: "comments/show_comment", locals: {comment: comment} %>
@@ -23,5 +22,4 @@
     <% @question.answers.each do |answer| %>
         <%= render partial: "answers/show_answer", locals: {answer: answer, comment: @comment} %>
     <% end %>
-
 </div>
