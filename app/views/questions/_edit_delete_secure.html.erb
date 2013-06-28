@@ -1,0 +1,4 @@
+<% if current_user && current_user.id == question.user.id %>
+  <%= link_to "delete this post", question_path(question), :method => "DELETE" %>
+  <%= link_to "Edit this post", edit_question_path(question) %>
+<% end %>

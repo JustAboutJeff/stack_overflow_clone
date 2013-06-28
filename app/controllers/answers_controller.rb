@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-  
   def index
     @answers = Answer.order("created_at DESC")
   end
@@ -13,7 +12,7 @@ class AnswersController < ApplicationController
     answer = Answer.new(params[:answer])
     question = Question.find(params[:question_id])
     question.answers << answer
-
+    answer.user_id = current_user.id
     if answer.save
       redirect_to question_path(question.id)
     else
@@ -41,5 +40,4 @@ class AnswersController < ApplicationController
     answer.destroy
     redirect_to questions_path
   end
-
 end

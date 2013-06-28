@@ -1,14 +1,18 @@
 <h1>All Questions</h1>
-<%= link_to "Add New Question", new_question_path %>
+<% if current_user %>
+	<%= link_to "Logout!", logout_path %><br>
+	<%= link_to "Add New Question", new_question_path %>
+<% else %>
+	<%= link_to "Login!", login_path %>
+<% end %>
 <% @questions.each do |q| %>
 	<h4><%= q.title %></h4>
 	<p><%= q.content %></p>
 	<%= link_to "Read question", question_path(q) %>
-  <%= link_to "Edit this post", edit_question_path(q) %>
 	<h5>Tags</h5>
 	<% q.tags.each do |tag| %>
     <p><%= link_to tag.tag_name, tag_path(tag) %></p>
 	<% end %>
-	<%= link_to "delete this post", question_path(q), :method => "DELETE" %><br>
 	<%= render partial: 'voting/voting', locals: {:element => q, :type => "question"} %>
+	<%= render partial: 'questions/edit_delete_secure', locals: {question: q} %>
 <% end %>
