@@ -14,7 +14,7 @@
   <% end %> </p>
 
   <h4>Add a comment to this question</h4>
-  <%= render partial: "comments/new_question_comment", locals: {commentable: @question } %>
+  <%= render partial: "comments/new_comment", locals: {commentable: @question } %>
 
   <h3>Add an answer:</h3>
   <%= render partial: "answers/new", locals: {answer: @answer, question: @question} %>
