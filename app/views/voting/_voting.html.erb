@@ -1,2 +1,10 @@
-<%= link_to "upvote!", votes_path(:votable_element => type, :value => 1, :element_id => element.id), :method => "POST"%><br>
-<%= link_to "downvote!", votes_path(:votable_element => type, :value => -1, :element_id => element.id), :method => "POST"%>
+<div class="voting-shell">
+	<p class="vote-score"><%= Vote.vote_score(element, type) %></p>
+	<%= link_to votes_path(:votable_element => type, :value => 1, :element_id => element.id), :method => "POST" do %>
+		<div class="voting-buttons thumbs_up_img"></div>
+	<% end %>
+	<%= link_to votes_path(:votable_element => type, :value => -1, :element_id => element.id), :method => "POST" do%>
+		<div class="voting-buttons thumbs_down_img"></div>
+	<% end %>
+	<p class="num-votes">number of votes: <%= element.votes.count %></p>
+</div>
