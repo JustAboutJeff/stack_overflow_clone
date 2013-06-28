@@ -2,13 +2,15 @@
 <html>
 <head>
   <title>StackOverflowClone</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class='body-container'>
+  <div class='container'>
     <%= render 'layouts/nav' %>
-    <%= yield %>
+    <div class='content'
+      <%= yield %>
+    </div>
   </div>
 <%= javascript_include_tag "application" %>
 </body>

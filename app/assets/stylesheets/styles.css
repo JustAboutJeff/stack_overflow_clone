@@ -1,0 +1,77 @@
+
+/* TODO: CLEAN UP OR TRASH THIS CSS
+/************ voting ****************/
+/* .thumbs_up_img{
+  width: 51px;
+  height: 51px;
+  background-image: url('icon_SPRITE.png');
+ }
+ .thumbs_down_img{
+  width: 51px;
+  height: 51px;
+  background-image: url('icon_SPRITE.png');
+  background-position: 0px -51px;
+ }
+ .voting-shell{
+  width: 300px;
+  position: relative;
+  overflow: auto;
+  margin:15px 0;
+ }
+ .voting-buttons{
+  float: left;
+  opacity: 0.6;
+ }
+  .voting-buttons:hover{
+    opacity: 1;
+  }
+  .voting-shell .vote-score{
+    font-size: 40px;
+    font-weight: bold;
+    float: left;
+    padding: 0px;
+    margin: 0px;
+  }
+  .num-votes{
+    font-size: 14px;
+    color: grey;
+    clear: both;
+  }*/
+
+  body {
+    background-color: hsl(168, 11%, 91%);
+  }
+
+  nav {
+    border-right: 3px solid #CCC;
+    position: absolute;
+    background: #EEE;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    box-shadow: rgba(0,0,0,.05) 4px 4px 0;
+  }
+
+  nav > ul {
+    margin: 0;
+    list-style: none;
+  }
+
+  nav > ul > li > a {
+    border-bottom: 1px solid #CCC;
+    display: block;
+    padding: 10px 0 10px 10px;
+  }
+
+  nav > ul > li > a:hover {
+    text-decoration: none;
+    background: #DDD;
+  }
+
+  .content {
+    padding: 20px;
+    margin-left: 100px;
+  }
+
