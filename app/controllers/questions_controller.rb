@@ -4,8 +4,12 @@ class QuestionsController < ApplicationController
 	end
 
 	def new
-		@question = Question.new
-		@tag = Tag.new
+		if !current_user
+			redirect_to root_path
+		else
+			@question = Question.new
+			@tag = Tag.new
+		end
 	end
 
 	def show
@@ -29,6 +33,9 @@ class QuestionsController < ApplicationController
 
 	def edit
 		@question = Question.find(params[:id])
+		if !current_user.id == @question.user.id
+			redirect_to root_path
+		end
 	end
 
 	def update

@@ -2,13 +2,11 @@ class CommentsController < ApplicationController
   
   def create
     klass = params[:question_id] ? "Question" : "Answer"
-
     comment = Comment.new(params[:comment])
     commentable = Question.find(params[:question_id]) if klass == "Question"
     commentable = Answer.find(params[:answer_id]) if klass == "Answer"
-
+    comment.user_id = current_user.id
     commentable.comments << comment
-
     if !comment.save
       @errors = "Comment did not save"
     end
