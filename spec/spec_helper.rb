@@ -36,4 +36,6 @@ RSpec.configure do |config|
 
   # Capybara
   config.include Capybara::DSL
+
+  config.include LoginHelper
 end
