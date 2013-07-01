@@ -22,10 +22,7 @@ class QuestionsController < ApplicationController
 		question = Question.create(params[:question])
 		all_tags = params[:tags].split(',')
 		all_tags.each do |tag|
-			question.tags << Tag.find_or_create_by_tag_name(
-																											:tag_name => tag.strip,
-																											:question_id => question.id	
-																											)
+			question.tags << Tag.find_or_create_by_tag_name(:tag_name => tag.strip)
 		end
 		current_user.questions << question
 		redirect_to questions_path
