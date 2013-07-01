@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
 	def index
-		@questions = Question.order("created_at DESC")
+		# @questions = Question.order("created_at DESC")
+		@questions = Question.all_cached.shift(50)
+		# @stats = Rails.cache.stats.first.last
+
 	end
 
 	def new
@@ -24,7 +27,7 @@ class QuestionsController < ApplicationController
 		all_tags.each do |tag|
 			question.tags << Tag.find_or_create_by_tag_name(
 																											:tag_name => tag.strip,
-																											:question_id => question.id	
+																											:question_id => question.id
 																											)
 		end
 		current_user.questions << question

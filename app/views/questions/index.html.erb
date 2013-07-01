@@ -1,3 +1,4 @@
+
 <h1>All Questions</h1>
 <% if current_user %>
 	<%= link_to "Logout!", logout_path %><br>
@@ -5,7 +6,9 @@
 <% else %>
 	<%= link_to "Login!", login_path %>
 <% end %>
+
 <% @questions.each do |q| %>
+<%= Rails.cache.fetch q do %>
 	<h4><%= q.title %></h4>
 	<p><%= q.content %></p>
 	<%= link_to "Read question", question_path(q) %>
@@ -15,4 +18,5 @@
 	<% end %>
 	<%= render partial: 'voting/voting', locals: {:element => q, :type => "question"} %>
 	<%= render partial: 'questions/edit_delete_secure', locals: {question: q} %>
+<% end %>
 <% end %>

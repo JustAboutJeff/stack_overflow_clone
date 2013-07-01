@@ -7,4 +7,8 @@ class Question < ActiveRecord::Base
   has_many :votes, :as => :voteable
   has_many :questions_tags
   has_many :tags, :through => :questions_tags
+
+  def self.all_cached
+    Rails.cache.fetch('Question.all') { all }
+  end
 end

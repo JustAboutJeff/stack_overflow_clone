@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :votes
 
-  validates :user_name, presence: true
-  validates :email, uniqueness: true, presence: true
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  validates :password, presence: true, length: { minimum: 6 }, :if => :validate_password?
-  validates :password_confirmation, presence: true, :if => :validate_password?
+  # validates :user_name, presence: true
+  # validates :email, uniqueness: true, presence: true
+  # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  # validates :password, presence: true, length: { minimum: 6 }, :if => :validate_password?
+  # validates :password_confirmation, presence: true, :if => :validate_password?
 
   has_secure_password
   before_save :create_gravatar_hash

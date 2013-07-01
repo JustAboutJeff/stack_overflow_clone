@@ -10,7 +10,7 @@ user_array = []
 question_array = []
 answer_array = []
 
-10.times do
+1000.times do
   u =   User.new(real_name:  Faker::Name.name,
                   email:          Faker::Internet.email,
                   user_name:      Faker::Internet.user_name,
@@ -33,7 +33,7 @@ end
 question_array.each do |question|
   (rand(2)+1).times do
     a = question.answers.build(content: Faker::Lorem.paragraph)
-    a.user = user_array.sample  
+    a.user = user_array.sample
     a.save
     answer_array << a
 

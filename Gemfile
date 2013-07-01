@@ -23,6 +23,8 @@ group :development, :test do
   gem "rspec-rails", "~> 2.0"
   gem 'capybara'
   gem 'faker'
+  gem 'rack-mini-profiler'
+  gem 'dalli'
 end
 
 group :test do
